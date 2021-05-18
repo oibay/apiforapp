@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LinkWController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [LinkWController::class, 'index']);
+Route::get('/add', [LinkWController::class, 'add']);
+Route::post('/add_action', [LinkWController::class, 'addAction'])->name('add_action');
+Route::get('/remove/{id}', [LinkWController::class, 'remove']);
 
